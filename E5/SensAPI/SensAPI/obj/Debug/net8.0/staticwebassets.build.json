@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "PFRdU+2hDHg04yJxUASJQoani/UJd4gQUU/ItIdYgvo=",
+  "Source": "SensAPI",
+  "BasePath": "_content/SensAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
