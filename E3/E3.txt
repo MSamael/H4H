@@ -7,24 +7,24 @@
                          |     RabbitMQ         |
                          +----------+-----------+
                                     │
-						            ▼
-						 +-------------------------+              
-						 | Microservicio de        |              
-						 | Procesamiento de Eventos|        
-						 +----------+--------------+              
-						   		    │                          
-							 ┌──────┴────────┐                 
-							 ▼               ▼                 
-						+--------------+   +-------------+      
-						|  MongoDB     |   | SQL Server  |      
-						+--------------+   +-------------+      
-							 │               │
-							 └──────┬────────┘
-									│
-									▼
-							 +----------------+
-							 |   API REST     |
-							 +----------------+
+				    ▼
+		        +-------------------------+              
+			| Microservicio de        |              
+			| Procesamiento de Eventos|        
+			+----------+--------------+              
+				   │                          
+			    ┌──────┴────────┐                 
+			    ▼               ▼                 
+		    +--------------+   +-------------+      
+		    |  MongoDB     |   | SQL Server  |      
+		    +--------------+   +-------------+      
+			    │               │
+			    └──────┬────────┘
+			     	   │
+				   ▼
+			   +----------------+
+			   |   API REST     |
+			   +----------------+
 Descripción:
 
 IoT Sensors:
@@ -33,11 +33,12 @@ Dispositivos que generan y publican eventos de datos al sistema. Estos eventos s
 RabbitMQ:
 Actúa como intermediario desacoplado que recibe mensajes de los sensores y los pone a disposición de los microservicios. Esto permite una mayor escalabilidad y tolerancia a fallos.
 
-Microservicio - Procesamiento:
+Microservicios:
 	Función: Consumir los mensajes de RabbitMQ, procesar los eventos y almacenarlos en las bases de datos.
 	Almacenamiento Dual:( puede utilizarse el patron repository )
 		MongoDB: Se utiliza para almacenar datos de eventos en un modelo NoSQL, ideal para información semi-estructurada y escalable.
 		SQL Server: Se utiliza para almacenar información en un formato relacional, donde se requieran transacciones y relaciones estructuradas.
 
 API REST:
-Provee un endpoint (o varios) para que los clientes puedan consultar la información de los sensores. Esta API se comunica con los microservicios o directamente con las bases de datos para recuperar la información consolidada de ambos sistemas de almacenamiento.
+Provee un endpoint (o varios) para que los clientes puedan consultar la información de los sensores. 
+Esta API se comunica con los microservicios o directamente con las bases de datos para recuperar la información consolidada de ambos sistemas de almacenamiento.
